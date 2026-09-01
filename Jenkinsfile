@@ -6,28 +6,32 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Checking out source code from Git..."
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
                 echo "Compiling project..."
+                sh 'mvn clean compile -DskipTests'
             }
         }
 
         stage('Execute Tests') {
             steps {
-                echo "Running test cases..."
+                echo "Running all test cases from HTTPRequests.java..."
+                sh 'mvn test -Dtest=HTTPRequests'
             }
         }
     }
 
     post {
         success {
-            echo 'Build and tests completed successfully.'
+            echo 'HTTPRequests test cases executed successfully.'
         }
+
         failure {
-            echo 'Build failed — check the Extent report and console log for details.'
+            echo 'Test execution failed — check the Jenkins console log.'
         }
     }
 }
