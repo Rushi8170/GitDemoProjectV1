@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 public class DiffWaysToCreatePostRequest {
 
 	// 1. POST request body using HashMap
-	//@Test
+	@Test
 	void testPOSTusingHAshMAp() {
 
 		HashMap data = new HashMap();
@@ -71,7 +71,7 @@ public class DiffWaysToCreatePostRequest {
 	}
 	
 	//4. using external json
-	@Test
+	//@Test
 	void testPOSTusingExternalJSON() throws FileNotFoundException {
 
 		File f = new File(".\\body.json");
@@ -86,14 +86,14 @@ public class DiffWaysToCreatePostRequest {
 				.header("Content-Type", "application/json; charset=utf-8").log().all();
 	}
 	
-	@Test(priority = 2,enabled = true)
+	//@Test(priority = 2,enabled = true)
 	void deleteRequest() {
 		given()
 
 				.when().delete("http://localhost:3000/students/5").then().log().all();
 	}
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	void getData() {
 		given().when().get("http://localhost:3000/students").then().log().all();
 	}

@@ -5,7 +5,7 @@
     <classes>
       <class name="july3.DiffWaysToCreatePostRequest">
         <methods>
-          <include name="testPOSTusingExternalJSON"/>
+          <include name="testPOSTusingHAshMAp"/>
         </methods>
       </class> <!-- july3.DiffWaysToCreatePostRequest -->
     </classes>
